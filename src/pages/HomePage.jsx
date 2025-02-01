@@ -40,7 +40,7 @@ const HomePage = () => {
 
       {/* Categories Section */}
       <section className="categories">
-        <h2>Explore Our Categories</h2>
+        <h2 className="Cate-text">Explore Our Categories</h2>
         <div className="categories-container">
           <div className="categories-particular">
             <Link style={{textDecoration : "none"}} to="/products?category=vapes" className="category-card">
