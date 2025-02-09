@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { PiRocketThin } from "react-icons/pi";
 import vapes_image from "../images/vapes.jpg";
 import mainPoster from "../images/Geekbar-poster.png";
@@ -23,12 +23,28 @@ import img6 from "../img/menu/menu-item-6.png"
 function NewHomePage() {
 
 const [categoryTitle, setCategoryTitle] = useState('Vapes');
-
-
-
+const [products, setProducts] = useState([]);
 const galleryImages = [
   myImg, myImg2, myImg3 , myImg4, myImg5, myImg6
 ];
+
+
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/products/category/${categoryTitle}`);
+      const data = await response.json();
+      setProducts(data); // Store products in state
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
+  fetchProducts(); // Call API whenever categoryTitle changes
+}, [categoryTitle]); // ✅ Runs whenever categoryTitle updates
+
+
+console.log(products);
 
   const MenuTab = ({ id, title }) => {
     const itemId = `menu-${categoryTitle}`
@@ -40,14 +56,14 @@ const galleryImages = [
       </div>
 
       <div className="row gy-5">
-        {[1, 2, 3, 4, 5, 6].map(item => (
+        {products.map(item => (
           <div className="col-lg-4 menu-item" key={item}>
-            <a href={img1} className="glightbox">
-              <img src={img1} className="menu-img img-fluid" alt="" />
+            <a href={`http://localhost:5000/api/products/image/${item.category}/${item.Image}`} className="glightbox">
+              <img src={`http://localhost:5000/api/products/image/${item.category}/${item.Image}`} className="menu-img img-fluid" alt="" />
             </a>
-            <h4>Item {item}</h4>
-            <p className="ingredients">Lorem, deren, trataro, filede, nerada</p>
-            <p className="price">${(Math.random() * 10 + 5).toFixed(2)}</p>
+            <h4>{item.name}</h4>
+            <p className="ingredients">{item.brand}</p>
+            <p className="price">${item.price}</p>
           </div>
         ))}
       </div>

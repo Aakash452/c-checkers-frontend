@@ -1,3 +1,30 @@
 .g-sidenav-show{
     height: 100vh;
 }
+
+.action-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  /* Edit Button (Blue) */
+  .action-button.edit {
+    color: #007bff;
+  }
+  
+  .action-button.edit:hover {
+    color: #0056b3;
+  }
+  
+  /* Delete Button (Red) */
+  .action-button.delete {
+    color: #dc3545;
+  }
+  
+  .action-button.delete:hover {
+    color: #a71d2a;
+  }
+  
