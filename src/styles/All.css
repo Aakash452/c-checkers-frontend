@@ -254,7 +254,7 @@
   .header .btn-getstarted,
   .header .btn-getstarted:focus {
     color: var(--contrast-color);
-    background: var(--accent-color);
+   
     font-size: 14px;
     padding: 8px 8px;
     margin: 0;
@@ -265,12 +265,12 @@
   .header .btn-getstarted:hover,
   .header .btn-getstarted:focus:hover {
     color: var(--contrast-color);
-    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+    /* background: color-mix(in srgb, var(--accent-color), transparent 15%); */
   }
   
   @media (max-width: 1200px) {
     .header .logo {
-      order: 1;
+      order: 0;
     }
   
     .header .btn-getstarted {
@@ -287,6 +287,19 @@
   .scrolled .header {
     box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
   }
+
+
+
+  /* For small Mobile screens */
+
+  @media (max-width: 550px) {
+    .header .btn-getstarted {
+      order: 2;
+      margin: 0 0 0 0;
+      padding: 6px 6px;
+    }
+  }
+
   
   /*--------------------------------------------------------------
   # Navigation Menu

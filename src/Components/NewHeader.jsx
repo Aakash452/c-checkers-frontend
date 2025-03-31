@@ -6,6 +6,9 @@ import { RxAvatar } from "react-icons/rx";
 import { IoIosMenu } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import AvatarIcon from "../Icons/AvatarIcon";
+import CartIcon from "../Icons/CartIcon";
+import SearchIcon from "../Icons/SearchIcon";
 
 const NewHeader = () => {
   // State for mobile nav active class
@@ -65,7 +68,7 @@ const NewHeader = () => {
             href="/"
             className="text-decoration-none logo d-flex align-items-center me-auto me-xl-0"
           >
-            <h1 className="sitename">CHECKERS</h1>
+            <h1 className="sitename">C-CHECKERS</h1>
           </a>
 
           <nav id="navmenu" className={`navmenu ${isMobileNavActive && "mobile-nav-active"} `}>
@@ -129,17 +132,6 @@ const NewHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/#events" onClick={handleLinkClick}>
-                  Events
-                </Link>
-              </li>
-              
-              <li>
-                <Link to="/#gallery" onClick={handleLinkClick}>
-                  Gallery
-                </Link>
-              </li>
-              <li>
                 <Link to="/#contact" onClick={handleLinkClick}>
                   Contact
                 </Link>
@@ -151,9 +143,28 @@ const NewHeader = () => {
             ></i>
           </nav>
 
-          <a className="btn-getstarted" href="index.html#book-a-table">
-            <RxAvatar size={32} color="white" />
+<div>
+   <a className="btn-getstarted" href="index.html#book-a-table">
+            {/* <RxAvatar size={32} color="white" /> */}
+            <SearchIcon/>
+           
+            
           </a>
+          <a className="btn-getstarted" href="index.html#book-a-table">
+           
+          <CartIcon/>
+          </a>
+          <a className="btn-getstarted" href="index.html#book-a-table">
+          <AvatarIcon/>
+            
+          </a>
+
+</div>
+         
+        
+
+          
+         
         </div>
       </header>
     </body>
