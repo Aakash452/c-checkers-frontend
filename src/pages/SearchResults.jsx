@@ -26,26 +26,7 @@ const sampleProducts = [
     subtitle: "Watermelon Ice",
     price: 22.99,
     img: "https://virginiavapes.com/cdn/shop/files/geekbar-pulse-x-25k-5-disposable-707176.jpg?v=1739315590",
-  },
-  {
-    title: "Crafting Beer Flavors",
-    subtitle: "Top Beer Picks",
-    price: 7.5,
-    img: "/images/beer1.jpg",
-  },
-  {
-    title: "Unique Cigar Blends",
-    subtitle: "Premium Cigar Sampler",
-    price: 9.99,
-    badge: "Discount",
-    img: "/images/cigar1.jpg",
-  },
-  {
-    title: "Vape Flavor Recipes",
-    subtitle: "Authentic Vape Juice",
-    price: 13.95,
-    img: "/images/vape2.jpg",
-  },
+  }
 ];
 
 const SearchResults = () => {
