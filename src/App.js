@@ -9,6 +9,7 @@ import ProductPage from './pages/ProductPage'; // Displays all products
 import Admin_Login from './admin_components/Admin_Login';
 import Admin_Panel from './admin_components/Admin_Panel';
 import Dashboard from './admin_components/Dashboard';
+import SearchResults from './pages/SearchResults';
 
 
 
@@ -52,6 +53,10 @@ const PrivateRoute = ({ children }) => {
   return children;
 };
 
+// When Search filter is on
+
+
+
 // Main Application Component
 const App = () => {
   return (
@@ -65,7 +70,17 @@ const App = () => {
             element={
               <>
                 <NewHeader />
-                <NewHomePage />
+                <NewHomePage/>
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <>
+                <NewHeader />
+                <SearchResults/>
                 <Footer />
               </>
             }

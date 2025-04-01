@@ -18,11 +18,22 @@ import img3 from "../img/menu/menu-item-3.png";
 import img4 from "../img/menu/menu-item-4.png";
 import img5 from "../img/menu/menu-item-5.png";
 import img6 from "../img/menu/menu-item-6.png";
+import { useNavigate } from "react-router-dom";
 
 function NewHomePage() {
   const [categoryTitle, setCategoryTitle] = useState("Vapes");
   const [products, setProducts] = useState([]);
   const galleryImages = [myImg, myImg2, myImg3, myImg4, myImg5, myImg6];
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // Navigate to search results page with query as a URL parameter
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -146,6 +157,7 @@ function NewHomePage() {
                       borderRadius: "10px",
                       fontSize: "1rem",
                     }}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
                 <div className="col-4 col-md-3">
@@ -160,6 +172,7 @@ function NewHomePage() {
                       fontWeight: "bold",
                       fontSize: "1rem",
                     }}
+                    onClick={handleSearch}
                   >
                     Search
                   </button>
