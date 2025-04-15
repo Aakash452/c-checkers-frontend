@@ -24,7 +24,7 @@ const NewHeader = () => {
       ...prevState,
       [index]: !prevState[index],
     }));
-    console.log(index)
+    console.log(index);
   };
 
   // Function to toggle mobile navigation
@@ -54,7 +54,7 @@ const NewHeader = () => {
     };
   }, []);
 
-  console.log(dropdownStates)
+  console.log(dropdownStates);
   return (
     <body className={`index-page ${isMobileNavActive && "mobile-nav-active"}`}>
       <header
@@ -71,54 +71,67 @@ const NewHeader = () => {
             <h1 className="sitename">C-CHECKERS</h1>
           </a>
 
-          <nav id="navmenu" className={`navmenu ${isMobileNavActive && "mobile-nav-active"} `}>
+          <nav
+            id="navmenu"
+            className={`navmenu ${isMobileNavActive && "mobile-nav-active"} `}
+          >
             <ul>
               <li>
                 <Link to="/" className="active" onClick={handleLinkClick}>
                   Home
                 </Link>
               </li>
-              <li className="dropdown" onClick={(e)=>{ e.preventDefault();  toggleDropdown(0)}}>
+              <li
+                className="dropdown"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleDropdown(0);
+                }}
+              >
                 <a href="#">
                   <span>Categories</span>{" "}
                   <i className="bi bi-chevron-down toggle-dropdown"></i>
                 </a>
-                <ul className={dropdownStates[0] && "dropdown-active"} >
+                <ul className={dropdownStates[0] && "dropdown-active"}>
                   <li>
                     <a href="#">Snacks</a>
                   </li>
-                  <li className="dropdown" onClick={(e)=>{ e.preventDefault(); e.stopPropagation();  toggleDropdown(1)}}>
+                  <li
+                    className="dropdown"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleDropdown(1);
+                    }}
+                  >
                     <a href="/#">
                       <span>Drinks</span>{" "}
                       <i className="bi bi-chevron-down toggle-dropdown"></i>
                     </a>
                     <ul className={dropdownStates[1] && "dropdown-active"}>
-                      <Link to="/Products?Categories=Beer">
-                        Beer
-                      </Link>
-                      <Link to="/Products?Categories=Wine">
-                        Wine
-                      </Link>
-                      <Link to="/Products?Categories=Soda">
-                        Soda
-                      </Link>
+                      <Link to="/Products?Categories=Beer">Beer</Link>
+                      <Link to="/Products?Categories=Wine">Wine</Link>
+                      <Link to="/Products?Categories=Soda">Soda</Link>
                       <Link to="/Products?Categories=energyDrinks">
                         Energy Drinks
                       </Link>
-                      <Link to="/Products?Categories=Water">
-                        Water
-                      </Link>
+                      <Link to="/Products?Categories=Water">Water</Link>
                     </ul>
                   </li>
                   <li>
-                    <a href="#">Vapes</a>
+                    <Link to="/Products?Categories=Vapes">Vapes</Link>
                   </li>
                   <li>
-                    <a href="#">Cigarettes</a>
+                    <Link to="/Products?Categories=Kratom">Kratom</Link>
                   </li>
                   <li>
-                    <a href="#">Tobacco</a>
+                    <Link to="/Products?Categories=Cigarettes">Cigarettes</Link>
                   </li>
+                  <li>
+                    <Link to="/Products?Categories=Tobacco">Tobacco</Link>
+                  </li>
+
+                  
                 </ul>
               </li>
               <li>
@@ -139,32 +152,24 @@ const NewHeader = () => {
             </ul>
             <i
               onClick={() => setMobileNavActive(!isMobileNavActive)}
-              className={`mobile-nav-toggle d-xl-none bi ${!isMobileNavActive ? "bi-list" : "bi-x"}`}
+              className={`mobile-nav-toggle d-xl-none bi ${
+                !isMobileNavActive ? "bi-list" : "bi-x"
+              }`}
             ></i>
           </nav>
 
-<div>
-   <a className="btn-getstarted" href="index.html#book-a-table">
-            {/* <RxAvatar size={32} color="white" /> */}
-            <SearchIcon/>
-           
-            
-          </a>
-          <a className="btn-getstarted" href="index.html#book-a-table">
-           
-          <CartIcon/>
-          </a>
-          <a className="btn-getstarted" href="index.html#book-a-table">
-          <AvatarIcon/>
-            
-          </a>
-
-</div>
-         
-        
-
-          
-         
+          <div>
+            <a className="btn-getstarted" href="index.html#book-a-table">
+              {/* <RxAvatar size={32} color="white" /> */}
+              <SearchIcon />
+            </a>
+            <a className="btn-getstarted" href="index.html#book-a-table">
+              <CartIcon />
+            </a>
+            <a className="btn-getstarted" href="index.html#book-a-table">
+              <AvatarIcon />
+            </a>
+          </div>
         </div>
       </header>
     </body>

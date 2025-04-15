@@ -10,7 +10,7 @@ const Admin_Login = () => {
 
   const fetchAdminLogin = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin-login", {
+      const response = await fetch("http://localhost:5005/api/admin-login", {
         method: "POST", // Changed to POST
         headers: {
           "Content-Type": "application/json",

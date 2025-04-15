@@ -91,9 +91,16 @@
 
 .product-image {
   width: 100%;
-  height: auto;
-  border-radius: 5px;
+  height: 180px; /* Or 200px if you want slightly taller images */
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #fff; /* Optional: light background */
+  padding: 10px;           /* Optional: creates spacing around image */
+  display: block;
+  margin: 0 auto;
 }
+
+
 
 .product-details {
   margin-top: 10px;

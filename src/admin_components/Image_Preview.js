@@ -3,12 +3,13 @@ import "../styles/Image_preview.css"
 
 const Image_Preview = ({ imageUrl, category }) => {
   const [previewImage, setPreviewImage] = useState(null); // Store clicked image
+  const secretKey = process.env.REACT_APP_BACKEND_URL 
 
   return (
     <div>
       {/* Product Image */}
       <img
-        src={`http://localhost:5000/api/products/image/${category}/${imageUrl}`}
+        src={`${secretKey}/products/image/${category}/${imageUrl}`}
         alt="Product"
         onClick={() => setPreviewImage(imageUrl)} // Open Image Preview
         style={{
@@ -26,7 +27,7 @@ const Image_Preview = ({ imageUrl, category }) => {
           onClick={() => setPreviewImage(null)} // Close on Click
         >
           <img
-            src={`http://localhost:5000/api/products/image/${category}/${previewImage}`}
+            src={`${secretKey}/products/image/${category}/${previewImage}`}
             alt="Preview"
             className="image-preview"
           />

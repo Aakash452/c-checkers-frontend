@@ -18,6 +18,8 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 
 function Inventory() {
   // Column Definitions: Defines the columns to be displayed.
+  const secretKey = process.env.REACT_APP_BACKEND_URL 
+
 
   // Variables defined
   const [colDefs, setColDefs] = useState([
@@ -54,7 +56,7 @@ function Inventory() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/products"); // API call
+      const response = await fetch(`${secretKey}/products`); // API call
       const data = await response.json();
       setProducts(data); // Store data in state
     } catch (error) {
@@ -81,7 +83,7 @@ function Inventory() {
     formDataToSend.append("brand", formData.brand);
     formDataToSend.append("image", formData.image); // Attach Image File
     try {
-      const response = await fetch("http://localhost:5000/api/products/add", {
+      const response = await fetch(`${secretKey}/products/add`, {
         method: "POST",
         body: formDataToSend,
       });
@@ -127,7 +129,7 @@ function Inventory() {
       if (result.isConfirmed) {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/products/${id}`,
+            `${secretKey}/products/${id}`,
             {
               method: "DELETE",
             }
@@ -355,6 +357,8 @@ function Inventory() {
                             >
                               <option value="">Choose...</option>
                               <option value="Beer">Beer</option>
+                              <option value="Wine">Wine</option>
+                              <option value="Kratom">Kratom</option>
                               <option value="Vapes">Vapes</option>
                               <option value="Cigars">Cigars</option>
                               <option value="Soda">Soda</option>
@@ -447,9 +451,9 @@ function Inventory() {
 
           <div
             // define a height because the Data Grid will fill the size of the parent container
-            style={{ height: 500 }}
+            style={{ height: '47em' , overflow:'scroll'}}
           >
-            <table className="table">
+            <table className="table table-responsive">
               <thead>
                 <tr className="text-center">
                   <th scope="col"></th>
